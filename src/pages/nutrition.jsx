@@ -7,13 +7,13 @@ export function Nutrition() {
   const [nutritionData, setNutritionData] = useState({
     options: {
       chart: { type: "donut" },
-      labels: ["Protein", "Carbs", "Fats"],
+      labels: [],
       colors: ["#10B981", "#3B82F6", "#F59E0B"],
     },
-    series: [30, 50, 20], // Default values
+    series: [], // Default values
+    otherNutrients: "",
   });
 
-  const [mealAnalysis, setMealAnalysis] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const fetchNutritionData = async (mealDescription) => {
@@ -31,8 +31,6 @@ export function Nutrition() {
         res?.data?.candidates?.[0]?.content?.parts?.[0]?.text ||
         "No data available.";
 
-      setMealAnalysis(responseText);
-
       try {
         const cleanedResponse = responseText.replace(/```json|```/g, "").trim();
 
@@ -40,12 +38,17 @@ export function Nutrition() {
 
         const labels = [];
         const series = [];
+        let otherNut = "";
 
         Object.entries(jsonData).forEach(([key, value]) => {
-          const numericValue = Number(value.replace(/\D/g, ""));
-          if (!isNaN(numericValue)) {
-            labels.push(key);
-            series.push(numericValue);
+          if (key === "OtherNutrients") {
+            otherNut = value;
+          } else {
+            const numericValue = Number(value.replace(/\D/g, ""));
+            if (!isNaN(numericValue)) {
+              labels.push(key);
+              series.push(numericValue);
+            }
           }
         });
 
@@ -54,14 +57,13 @@ export function Nutrition() {
             labels: labels,
           },
           series: series,
+          otherNutrients: otherNut,
         });
       } catch (parseError) {
         console.error("JSON Parsing Error:", parseError);
-        setMealAnalysis("Error in response format. Please try again.");
       }
     } catch (error) {
       console.error("Error fetching nutrition data:", error);
-      setMealAnalysis("Failed to fetch nutrition data. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -73,7 +75,7 @@ export function Nutrition() {
     if (mealDescription) {
       await fetchNutritionData(mealDescription);
     } else {
-      setMealAnalysis("Please enter a valid meal description.");
+      alert("Please enter a meal description.");
     }
   };
 
@@ -140,6 +142,15 @@ export function Nutrition() {
                     </span>
                   </div>
                 ))}
+
+                <div>
+                  {nutritionData.otherNutrients && (
+                    <div className="mt-4">
+                      <h3 className="text-lg font-semibold">Other Nutrients</h3>
+                      <p>{nutritionData.otherNutrients}</p>
+                    </div>
+                  )}
+                </div>
               </div>
             </>
           )}

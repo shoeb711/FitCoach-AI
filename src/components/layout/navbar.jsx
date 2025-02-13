@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
-import { Dumbbell, User } from 'lucide-react';
-import { Avatar, AvatarFallback } from '../ui/avatar';
+import { Dumbbell } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Navbar() {
   return (
@@ -10,32 +9,26 @@ export function Navbar() {
           <Dumbbell className="h-6 w-6" />
           <span>FitCoach AI</span>
         </Link>
-        
+
         <div className="ml-auto flex items-center gap-4">
-          <Link 
+          <Link
             to="/workout"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
             Workouts
           </Link>
-          <Link 
+          <Link
             to="/nutrition"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
             Nutrition
           </Link>
-          <Link 
+          <Link
             to="/profile"
             className="text-sm font-medium transition-colors hover:text-primary"
           >
             Profile
           </Link>
-          
-          <Avatar>
-            <AvatarFallback>
-              <User className="h-5 w-5" />
-            </AvatarFallback>
-          </Avatar>
         </div>
       </div>
     </nav>

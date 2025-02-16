@@ -98,7 +98,7 @@ export function Nutrition() {
                 Meal Description
               </label>
               <textarea
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm pl-1"
                 rows={4}
                 name="mealDescription"
                 placeholder="Enter your meal details (e.g., 1 cup rice, 100g chicken breast)"

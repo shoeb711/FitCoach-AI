@@ -1,5 +1,8 @@
-import { ArrowRight, Brain, Dumbbell, Utensils } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import ArrowRight from "../assets/icons/ArrowRight";
+import BrainIcon from "../assets/icons/BrainIcon";
+import DumbellIcon from "../assets/icons/DumbellIcon";
+import UtensilIcon from "../assets/icons/UtensilIcon";
 
 export function Home() {
   return (
@@ -12,7 +15,8 @@ export function Home() {
                 Your AI-Powered Health & Fitness Coach
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
-                Personalized workout plans, nutrition advice, and AI-driven insights to help you reach your fitness goals.
+                Personalized workout plans, nutrition advice, and AI-driven
+                insights to help you reach your fitness goals.
               </p>
             </div>
             <div className="space-x-4">
@@ -33,25 +37,27 @@ export function Home() {
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col items-center space-y-4">
               <div className="rounded-full bg-gray-100 p-4">
-                <Dumbbell className="h-6 w-6" />
+                <DumbellIcon />
               </div>
               <h3 className="text-xl font-bold">Personalized Workouts</h3>
               <p className="text-center text-gray-500">
-                AI-generated workout plans tailored to your goals and fitness level.
+                AI-generated workout plans tailored to your goals and fitness
+                level.
               </p>
             </div>
             <div className="flex flex-col items-center space-y-4">
               <div className="rounded-full bg-gray-100 p-4">
-                <Utensils className="h-6 w-6" />
+                <UtensilIcon />
               </div>
               <h3 className="text-xl font-bold">Nutrition Analysis</h3>
               <p className="text-center text-gray-500">
-                Get detailed breakdowns of your meals and personalized nutrition advice.
+                Get detailed breakdowns of your meals and personalized nutrition
+                advice.
               </p>
             </div>
             <div className="flex flex-col items-center space-y-4">
               <div className="rounded-full bg-gray-100 p-4">
-                <Brain className="h-6 w-6" />
+                <BrainIcon />
               </div>
               <h3 className="text-xl font-bold">AI Insights</h3>
               <p className="text-center text-gray-500">

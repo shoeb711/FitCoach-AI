@@ -1,4 +1,5 @@
-import { User, Settings, Bell } from 'lucide-react';
+import SettingIcon from "../assets/icons/SettingIcon";
+import UserIcon from "../assets/icons/UserIcon";
 
 export function Profile() {
   return (
@@ -13,7 +14,7 @@ export function Profile() {
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="flex items-center gap-4 mb-6">
               <div className="h-20 w-20 rounded-full bg-gray-200 flex items-center justify-center">
-                <User className="h-10 w-10 text-gray-500" />
+                <UserIcon className="h-10 w-10 text-gray-500" />
               </div>
               <div>
                 <h2 className="text-xl font-semibold">John Doe</h2>
@@ -28,8 +29,8 @@ export function Profile() {
                 </label>
                 <input
                   type="text"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                  defaultValue="John Doe"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                  defaultValue=""
                 />
               </div>
               <div>
@@ -38,8 +39,8 @@ export function Profile() {
                 </label>
                 <input
                   type="email"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                  defaultValue="john.doe@example.com"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                  defaultValue=""
                 />
               </div>
             </div>
@@ -47,7 +48,7 @@ export function Profile() {
 
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-              <Settings className="h-5 w-5" />
+              <SettingIcon />
               Preferences
             </h2>
             <div className="space-y-4">
@@ -55,7 +56,10 @@ export function Profile() {
                 <label className="block text-sm font-medium text-gray-700">
                   Fitness Goal
                 </label>
-                <select className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                <select className="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                  <option value="" hidden>
+                    Select fitness goal
+                  </option>
                   <option>Weight Loss</option>
                   <option>Muscle Gain</option>
                   <option>General Fitness</option>
@@ -65,38 +69,14 @@ export function Profile() {
                 <label className="block text-sm font-medium text-gray-700">
                   Activity Level
                 </label>
-                <select className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                <select className="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                  <option value="" hidden>
+                    Select Activity Level
+                  </option>
                   <option>Beginner</option>
                   <option>Intermediate</option>
                   <option>Advanced</option>
                 </select>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-              <Bell className="h-5 w-5" />
-              Notifications
-            </h2>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-gray-700">
-                  Workout Reminders
-                </span>
-                <label className="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" className="sr-only peer" defaultChecked />
-                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                </label>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-gray-700">
-                  Nutrition Updates
-                </span>
-                <label className="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" className="sr-only peer" defaultChecked />
-                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                </label>
               </div>
             </div>
           </div>
